@@ -21,9 +21,9 @@
       "description": "Get the most out of your experience"
     },
     {
-      "id": "test",
-      "name": "Test",
-      "description": "Test articles for development"
+      "id": "faq",
+      "name": "FAQ", 
+      "description": "Questions that are asked frequently."
     },
     {
       "id": "misc",
@@ -34,7 +34,7 @@
   "articles": [
     {
       "id": "soar-eol",
-      "title": "SoarClient end of life",
+      "title": "SoarClient End Of Life",
       "description": "Find out information abou the discontinuation of soar client",
       "category": "misc",
       "keywords": "soar eol discontinue discontination soarclient checking data checking for updates",
@@ -46,7 +46,7 @@
       "tags": ["EOL", "SoarClient"],
       "relatedIds": [""]
     },
-        {
+    {
       "id": "blacklist-feature",
       "title": "Mod Blacklisting",
       "description": "Learn how we are protecting you from bans on servers.",
@@ -54,10 +54,24 @@
       "keywords": "mod not work broken issue blacklist error",
       "image": "/assets/mod-warn.webp",
       "date": "2025-07-25",
-      "author": "GlideClient",
+      "author": "Breadcat",
       "path": "/articles/blacklist",
       "featured": true,
       "tags": ["Mods", "Blacklist"],
+      "relatedIds": ["contact-us"]
+    },
+    {
+      "id": "contact-us",
+      "title": "Contact Us",
+      "description": "Find out how you can contact the GlideClient team.",
+      "category": "faq",
+      "keywords": "glide contact discord email twitter discord threads instagram facebook youtube github",
+      "image": "/assets/bg.webp",
+      "date": "2025-07-25",
+      "author": "GlideClient",
+      "path": "/articles/blacklist",
+      "featured": true,
+      "tags": ["contact", "information"],
       "relatedIds": [""]
     }
 
@@ -65,6 +79,6 @@
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 2
+    "totalArticles": 3
   }
 }
