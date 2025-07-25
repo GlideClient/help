@@ -117,6 +117,10 @@
                     this.renderArticles();
                     this.setupEventListeners();
                     this.handleURLState();
+                    const loadingState = document.querySelector('.loading-state');
+                    if (loadingState) {
+                        loadingState.style.display = 'none';
+                    }
                 } catch (error) {
                     console.error('Failed to load documentation:', error);
                     this.showError('Failed to load documentation. Please try again later.');
