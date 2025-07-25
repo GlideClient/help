@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlideClient Help</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="nav-card">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/">
+                        <img src="./assets/logo.svg" alt="GlideClient Logo" class="logo-image">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="/" class="nav-link" title="Home">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </a>
+                    <a href="https://glideclient.com/discord" class="nav-link" title="Contact Us">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://glideclient.com" class="nav-link" title="Exit to GlideClient">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-card">
+            <div class="header-image">
+                <img src="./assets/bg.webp">
+            </div>
+            <div class="header-content">
+                <h1>GlideClient Docs</h1>
+                <p>Here you can find official support documentation for GlideClient</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-section">
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" class="search-input" placeholder="Search documentation..."
+                    aria-label="Search documentation">
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-chips">
+                <!-- Filter chips will be generated dynamically -->
+            </div>
+        </div>
+
+        <div class="docs-grid">
+            <!-- Loading state -->
+            <div class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading documentation...</p>
+            </div>
+
+            <!-- No results message (hidden by default) -->
+            <div class="no-results">
+                <h2>No matching documentation found...</h2>
+                <p>Try adjusting your search terms or selecting a different category</p>
+            </div>
+
+            <!-- Error message container -->
+            <div class="error-message" style="display: none;">
+                <h2>Oops! Something went wrong</h2>
+                <p>Failed to load documentation. Please try again later.</p>
+                <button onclick="location.reload()" class="retry-button">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load articles from the json
+        class DocsLoader {
+            constructor() {
+                this.docs = null;
+                this.categories = null;
+                this.filteredArticles = [];
+                this.activeCategory = 'all';
+                this.searchTerm = '';
+
+                this.searchInput = document.querySelector('.search-input');
+                this.docsGrid = document.querySelector('.docs-grid');
+                this.noResults = document.querySelector('.no-results');
+                this.filterChips = document.querySelector('.filter-chips');
+            }
+
+            async init() {
+                try {
+                    await this.loadDocs();
+                    this.renderFilterChips();
+                    this.renderArticles();
+                    this.setupEventListeners();
+                    this.handleURLState();
+                } catch (error) {
+                    console.error('Failed to load documentation:', error);
+                    this.showError('Failed to load documentation. Please try again later.');
+                }
+            }
+
+            async loadDocs() {
+                const response = await fetch('./articles.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                this.docs = data.articles;
+                this.categories = data.categories;
+                this.filteredArticles = [...this.docs];
+            }
+
+            renderFilterChips() {
+                const allChip = `<button class="filter-chip active" data-category="all">All</button>`;
+                const categoryChips = this.categories.map(category =>
+                    `<button class="filter-chip" data-category="${category.id}">${category.name}</button>`
+                ).join('');
+
+                this.filterChips.innerHTML = allChip + categoryChips;
+            }
+
+            renderArticles() {
+                // Clear existing articles (but keep no-results element)
+                const existingCards = this.docsGrid.querySelectorAll('.doc-card');
+                existingCards.forEach(card => card.remove());
+
+                if (this.filteredArticles.length === 0) {
+                    this.noResults.classList.add('visible');
+                    return;
+                }
+
+                this.noResults.classList.remove('visible');
+
+                const articlesHTML = this.filteredArticles.map(article => this.createArticleCard(article)).join('');
+                this.docsGrid.insertAdjacentHTML('afterbegin', articlesHTML);
+            }
+
+            createArticleCard(article) {
+                const categoryName = this.categories.find(cat => cat.id === article.category)?.name || article.category;
+                const featuredBadge = article.featured ? '<span class="featured-badge">Featured</span>' : '';
+
+                return `
+            <div class="doc-card" data-category="${article.category}" data-keywords="${article.keywords}">
+                <a href="${article.path}">
+                    <div class="doc-content">
+                        <div class="doc-image">
+                            <img src="${article.image}" alt="${article.title}" loading="lazy">
+                            ${featuredBadge}
+                        </div>
+                        <h2 class="doc-title">${article.title}</h2>
+                        <p class="doc-description">${article.description}</p>
+                        <div class="doc-meta">
+                            <span class="doc-category">${categoryName}</span>
+                            <span class="doc-date">${this.formatDate(article.date)}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        `;
+            }
+
+            formatDate(dateString) {
+                const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString('en-US', options);
+            }
+
+            filterArticles() {
+                this.filteredArticles = this.docs.filter(article => {
+                    const matchesCategory = this.activeCategory === 'all' || article.category === this.activeCategory;
+                    const matchesSearch = this.searchTerm === '' || this.matchesSearchTerm(article);
+                    return matchesCategory && matchesSearch;
+                });
+
+                this.renderArticles();
+                this.updateURL();
+            }
+
+            matchesSearchTerm(article) {
+                const searchLower = this.searchTerm.toLowerCase();
+                return (
+                    article.title.toLowerCase().includes(searchLower) ||
+                    article.description.toLowerCase().includes(searchLower) ||
+                    article.keywords.toLowerCase().includes(searchLower) ||
+                    article.tags.some(tag => tag.toLowerCase().includes(searchLower))
+                );
+            }
+
+            setupEventListeners() {
+                // Search input
+                this.searchInput.addEventListener('input', (e) => {
+                    this.searchTerm = e.target.value;
+                    this.filterArticles();
+                });
+
+                // Filter chips (using event delegation)
+                this.filterChips.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-chip')) {
+                        // Remove active class from all chips
+                        this.filterChips.querySelectorAll('.filter-chip').forEach(chip =>
+                            chip.classList.remove('active')
+                        );
+
+                        // Add active class to clicked chip
+                        e.target.classList.add('active');
+
+                        // Update active category
+                        this.activeCategory = e.target.dataset.category;
+                        this.filterArticles();
+                    }
+                });
+
+                // Handle browser back/forward
+                window.addEventListener('popstate', () => {
+                    this.handleURLState();
+                });
+            }
+
+            updateURL() {
+                const params = new URLSearchParams();
+                if (this.searchTerm) params.set('search', this.searchTerm);
+                if (this.activeCategory !== 'all') params.set('category', this.activeCategory);
+
+                const newURL = params.toString() ? `?${params.toString()}` : window.location.pathname;
+                window.history.replaceState({}, '', newURL);
+            }
+
+            handleURLState() {
+                const params = new URLSearchParams(window.location.search);
+
+                // Handle search parameter
+                const searchParam = params.get('search');
+                if (searchParam) {
+                    this.searchTerm = searchParam;
+                    this.searchInput.value = searchParam;
+                }
+
+                // Handle category parameter
+                const categoryParam = params.get('category');
+                if (categoryParam && this.categories.some(cat => cat.id === categoryParam)) {
+                    this.activeCategory = categoryParam;
+                    // Update active chip
+                    this.filterChips.querySelectorAll('.filter-chip').forEach(chip => {
+                        chip.classList.toggle('active', chip.dataset.category === categoryParam);
+                    });
+                }
+
+                this.filterArticles();
+            }
+
+            showError(message) {
+                this.docsGrid.innerHTML = `
+            <div class="error-message">
+                <h2>Oops! Something went wrong</h2>
+                <p>${message}</p>
+                <button onclick="location.reload()" class="retry-button">Try Again</button>
+            </div>
+        `;
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const docsLoader = new DocsLoader();
+            docsLoader.init();
+        });
+    </script>
+</body>
+
+</html>

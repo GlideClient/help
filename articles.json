@@ -1,0 +1,49 @@
+{
+  "categories": [
+    {
+      "id": "installation",
+      "name": "Installation",
+      "description": "Getting started with GlideClient"
+    },
+    {
+      "id": "troubleshooting", 
+      "name": "Troubleshooting",
+      "description": "Common issues and solutions"
+    },
+    {
+      "id": "features",
+      "name": "Features", 
+      "description": "GlideClient features and capabilities"
+    },
+    {
+      "id": "tips",
+      "name": "Tips and Tricks", 
+      "description": "Get the most out of your experience"
+    },
+    {
+      "id": "test",
+      "name": "Test",
+      "description": "Test articles for development"
+    }
+  ],
+  "articles": [
+    {
+      "id": "hello-world",
+      "title": "Hello world",
+      "description": "Find out about meowing",
+      "category": "test",
+      "keywords": "hello world example test demo tutorial basic introduction getting started",
+      "image": "./assets/bg.webp",
+      "date": "2025-07-25",
+      "author": "GlideClient",
+      "path": "/example",
+      "featured": false,
+      "tags": ["beginner", "example"]
+    }
+  ],
+  "meta": {
+    "version": "1.0",
+    "lastUpdated": "2025-07-25",
+    "totalArticles": 1
+  }
+}
