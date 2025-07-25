@@ -24,41 +24,32 @@
       "id": "test",
       "name": "Test",
       "description": "Test articles for development"
+    },
+    {
+      "id": "misc",
+      "name": "Other/News",
+      "description": "General pages that dont fit in other catagories"
     }
   ],
   "articles": [
     {
-      "id": "hello-world",
-      "title": "Hello world",
-      "description": "Find out about meowing",
+      "id": "soar-eol",
+      "title": "SoarClient end of life",
+      "description": "Find out information abou the discontinuation of soar client",
       "category": "test",
-      "keywords": "hello world example test demo tutorial basic introduction getting started",
-      "image": "/assets/bg.webp",
+      "keywords": "soar eol discontinue discontination soarclient checking data checking for updates",
+      "image": "/assets/soarshut.webp",
       "date": "2025-07-25",
-      "author": "GlideClient",
-      "path": "/articles/example",
+      "author": "EldoDebug & GlideClient",
+      "path": "/articles/soarclienteol",
       "featured": false,
-      "tags": ["beginner", "example"],
-      "relatedIds": ["main-menu"]
-    },
-    {
-      "id": "main-menu",
-      "title": "home",
-      "description": "Go back to the main menu!",
-      "category": "installation",
-      "keywords": "Home",
-      "image": "/assets/bg.webp", 
-      "date": "2025-07-20",
-      "author": "GlideClient",
-      "path": "/",
-      "featured": false,
-      "tags": ["test"],
-      "relatedIds": ["none"]
+      "tags": ["EOL", "SoarClient"],
+      "relatedIds": [""]
     }
   ],
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 2
+    "totalArticles": 1
   }
 }
