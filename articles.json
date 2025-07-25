@@ -36,7 +36,7 @@
       "id": "soar-eol",
       "title": "SoarClient end of life",
       "description": "Find out information abou the discontinuation of soar client",
-      "category": "test",
+      "category": "misc",
       "keywords": "soar eol discontinue discontination soarclient checking data checking for updates",
       "image": "/assets/soarshut.webp",
       "date": "2025-07-25",
@@ -45,11 +45,26 @@
       "featured": false,
       "tags": ["EOL", "SoarClient"],
       "relatedIds": [""]
+    },
+        {
+      "id": "blacklist-feature",
+      "title": "Mod Blacklisting",
+      "description": "Learn how we are protecting you from bans on servers.",
+      "category": "features",
+      "keywords": "mod not work broken issue blacklist error",
+      "image": "/assets/mod-warn.webp",
+      "date": "2025-07-25",
+      "author": "GlideClient",
+      "path": "/articles/blacklist",
+      "featured": true,
+      "tags": ["Mods", "Blacklist"],
+      "relatedIds": [""]
     }
+
   ],
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 1
+    "totalArticles": 2
   }
 }
