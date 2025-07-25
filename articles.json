@@ -38,12 +38,27 @@
       "author": "GlideClient",
       "path": "/example",
       "featured": false,
-      "tags": ["beginner", "example"]
+      "tags": ["beginner", "example"],
+      "relatedIds": ["main-menu"]
+    },
+    {
+      "id": "main-menu",
+      "title": "home",
+      "description": "test",
+      "category": "installation",
+      "keywords": "Home",
+      "image": "./assets/bg.webp", 
+      "date": "2025-07-20",
+      "author": "GlideClient",
+      "path": "./",
+      "featured": false,
+      "tags": ["test"],
+      "relatedIds": ["none"]
     }
   ],
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 1
+    "totalArticles": 2
   }
 }

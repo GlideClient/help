@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlideClient example support doc</title>
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../related_articles.css">
 </head>
 
 <body>
@@ -69,7 +71,6 @@
         </div>
     </header>
 
-
     <div class="container">
         <div class="card">
             <p>This article refers to GlideClient 7.2 (7201) and above.</p>
@@ -95,25 +96,15 @@
                 <strong>Warning:</strong> Example warning notification
             </div>
 
+            <!-- Related articles section - will be populated dynamically -->
             <section class="related-docs">
-                <h2>Related</h2>
-                <ul class="related-docs-list">
-                    <li class="related-doc-item">
-                        <a href="../index.html" class="related-doc-link">
-                            <svg class="related-doc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor">
-                                <circle cx="12" cy="12" r="10" stroke-width="2" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8l4 4-4 4m-4-4h8" />
-                            </svg>
-                            <span class="related-doc-text"><strong>Support:</strong> see a list of all the support
-                                documents we have.</span>
-                        </a>
-                    </li>
-                </ul>
+                <!-- Content will be loaded by JavaScript -->
             </section>
         </div>
     </div>
+
+    <script src="../related_articles.css"></script>
+    <script>loadRelatedArticles('hello-world');</script>
 </body>
 
 </html>
