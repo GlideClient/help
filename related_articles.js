@@ -1,28 +1,23 @@
-// Add this function to your article template pages
 async function loadRelatedArticles(currentArticleId) {
     try {
         const response = await fetch('/articles.json');
         const data = await response.json();
         
-        // Find current article
         const currentArticle = data.articles.find(article => article.id === currentArticleId);
         if (!currentArticle || !currentArticle.relatedIds) {
-            return; // No related articles configured
+            return;
         }
         
-        // Get related articles data
         const relatedArticles = currentArticle.relatedIds
             .map(id => data.articles.find(article => article.id === id))
             .filter(article => article); // Remove any undefined articles
         
         if (relatedArticles.length === 0) {
-            return; // No valid related articles found
+            return; 
         }
-        
-        // Generate HTML for related articles
+
         const relatedHTML = generateRelatedArticlesHTML(relatedArticles, data.categories);
         
-        // Insert into page
         const relatedSection = document.querySelector('.related-docs');
         if (relatedSection) {
             relatedSection.innerHTML = relatedHTML;
@@ -74,6 +69,3 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
-
-// Usage in your article pages:
-// loadRelatedArticles('hello-world'); // Replace with current article ID
