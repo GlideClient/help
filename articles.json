@@ -70,7 +70,7 @@
       "date": "2025-07-25",
       "author": "GlideClient",
       "path": "/articles/contactus",
-      "featured": true,
+      "featured": false,
       "tags": ["contact", "information"],
       "relatedIds": [""]
     }
