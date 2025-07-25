@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlideClient Help</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/home.css">
 </head>
 
 <body>
@@ -15,16 +15,10 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="/">
-                        <img src="./assets/logo.svg" alt="GlideClient Logo" class="logo-image">
+                        <img src="/assets/logo.svg" alt="GlideClient Logo" class="logo-image">
                     </a>
                 </div>
                 <div class="nav-links">
-                    <a href="/" class="nav-link" title="Home">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </a>
                     <a href="https://glideclient.com/discord" class="nav-link" title="Contact Us">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,7 +39,7 @@
     <header>
         <div class="header-card">
             <div class="header-image">
-                <img src="./assets/bg.webp">
+                <img src="/assets/bg.webp">
             </div>
             <div class="header-content">
                 <h1>GlideClient Docs</h1>
@@ -144,7 +138,6 @@
             }
 
             renderArticles() {
-                // Clear existing articles (but keep no-results element)
                 const existingCards = this.docsGrid.querySelectorAll('.doc-card');
                 existingCards.forEach(card => card.remove());
 
@@ -216,24 +209,19 @@
                     this.filterArticles();
                 });
 
-                // Filter chips (using event delegation)
                 this.filterChips.addEventListener('click', (e) => {
                     if (e.target.classList.contains('filter-chip')) {
-                        // Remove active class from all chips
                         this.filterChips.querySelectorAll('.filter-chip').forEach(chip =>
                             chip.classList.remove('active')
                         );
 
-                        // Add active class to clicked chip
                         e.target.classList.add('active');
 
-                        // Update active category
                         this.activeCategory = e.target.dataset.category;
                         this.filterArticles();
                     }
                 });
 
-                // Handle browser back/forward
                 window.addEventListener('popstate', () => {
                     this.handleURLState();
                 });
@@ -251,18 +239,15 @@
             handleURLState() {
                 const params = new URLSearchParams(window.location.search);
 
-                // Handle search parameter
                 const searchParam = params.get('search');
                 if (searchParam) {
                     this.searchTerm = searchParam;
                     this.searchInput.value = searchParam;
                 }
 
-                // Handle category parameter
                 const categoryParam = params.get('category');
                 if (categoryParam && this.categories.some(cat => cat.id === categoryParam)) {
                     this.activeCategory = categoryParam;
-                    // Update active chip
                     this.filterChips.querySelectorAll('.filter-chip').forEach(chip => {
                         chip.classList.toggle('active', chip.dataset.category === categoryParam);
                     });
@@ -282,7 +267,6 @@
             }
         }
 
-        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             const docsLoader = new DocsLoader();
             docsLoader.init();

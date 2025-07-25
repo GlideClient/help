@@ -42,7 +42,6 @@ function generateRelatedArticlesHTML(articles, categories) {
                     <div class="related-article-content">
                         <div class="related-article-meta">
                             <span class="related-article-category">${categoryName}</span>
-                            <span class="related-article-date">${formatDate(article.date)}</span>
                         </div>
                         <h3 class="related-article-title">${article.title}</h3>
                         <p class="related-article-description">${article.description}</p>
@@ -58,7 +57,7 @@ function generateRelatedArticlesHTML(articles, categories) {
     }).join('');
     
     return `
-        <h2>Continue Your Journey</h2>
+        <h2>Related.</h2>
         <div class="related-articles-grid">
             ${articlesHTML}
         </div>
