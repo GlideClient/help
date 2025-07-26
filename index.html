@@ -139,7 +139,12 @@
 
             renderArticles() {
                 const existingCards = this.docsGrid.querySelectorAll('.doc-card');
+                const loadingState = this.docsGrid.querySelector('.loading-state');
+
                 existingCards.forEach(card => card.remove());
+                if (loadingState) {
+                    loadingState.remove();
+                }
 
                 if (this.filteredArticles.length === 0) {
                     this.noResults.classList.add('visible');

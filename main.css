@@ -373,12 +373,15 @@ code {
     background-color: var(--code-bg);
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    overflow: hidden; 
 }
 
 .code-block pre {
     padding: var(--spacing-md);
     overflow-x: auto;
     margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .code-block code {
@@ -387,7 +390,23 @@ code {
     background: none;
     padding: 0;
     color: #A5F3FC;
+    word-break: break-all; 
+    white-space: pre-wrap; 
+    
 }
+
+@media (max-width: 768px) {
+    .code-block pre {
+        padding: var(--spacing-sm);
+        font-size: 0.8rem; 
+    }
+    
+    .code-block code {
+        word-break: break-word; 
+        overflow-wrap: break-word;
+    }
+}
+
 
 .copy-button {
     position: absolute;
