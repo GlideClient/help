@@ -35,7 +35,7 @@
     {
       "id": "soar-eol",
       "title": "SoarClient End Of Life",
-      "description": "Find out information abou the discontinuation of soar client",
+      "description": "Find out information about the discontinuation of soar client",
       "category": "misc",
       "keywords": "soar eol discontinue discontination soarclient checking data checking for updates",
       "image": "/assets/soarshut.webp",
@@ -44,7 +44,7 @@
       "path": "/articles/soarclienteol",
       "featured": false,
       "tags": ["EOL", "SoarClient"],
-      "relatedIds": [""]
+      "relatedIds": ["platform-support", "contact-us"]
     },
     {
       "id": "blacklist-feature",
@@ -59,6 +59,20 @@
       "featured": true,
       "tags": ["Mods", "Blacklist"],
       "relatedIds": ["contact-us"]
+    },
+    {
+      "id": "platform-support",
+      "title": "Platforms We Support",
+      "description": "Find out what platforms we support.",
+      "category": "installation",
+      "keywords": "windoes mac os linux macos install platfom os system versions",
+      "image": "/assets/platforms.webp",
+      "date": "2025-07-26",
+      "author": "GlideClient",
+      "path": "/articles/platformsupport",
+      "featured": false,
+      "tags": ["version", "platform"],
+      "relatedIds": [""]
     },
     {
       "id": "contact-us",
