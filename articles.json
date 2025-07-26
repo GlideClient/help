@@ -43,6 +43,7 @@
       "author": "EldoDebug & GlideClient",
       "path": "/articles/soarclienteol",
       "featured": false,
+      "noIndex": false,
       "tags": ["EOL", "SoarClient"],
       "relatedIds": ["platform-support", "contact-us"]
     },
@@ -57,6 +58,7 @@
       "author": "Breadcat",
       "path": "/articles/blacklist",
       "featured": true,
+      "noIndex": false,
       "tags": ["Mods", "Blacklist"],
       "relatedIds": ["contact-us"]
     },
@@ -71,6 +73,7 @@
       "author": "GlideClient",
       "path": "/articles/platformsupport",
       "featured": false,
+      "noIndex": false,
       "tags": ["version", "platform"],
       "relatedIds": [""]
     },
@@ -85,6 +88,7 @@
       "author": "GlideClient",
       "path": "/articles/contactus",
       "featured": false,
+      "noIndex": false,
       "tags": ["contact", "information"],
       "relatedIds": ["income"]
     },
@@ -99,8 +103,39 @@
       "author": "BreadCat",
       "path": "/articles/income",
       "featured": false,
+      "noIndex": false,
       "tags": ["income"],
       "relatedIds": ["contact-us"]
+    },
+    {
+      "id": "home-page",
+      "title": "The Homepage",
+      "description": "Click to go back to the homepage.",
+      "category": "misc",
+      "keywords": "",
+      "image": "/assets/bg.webp",
+      "date": "2025-07-26",
+      "author": "BreadCat",
+      "path": "/",
+      "featured": false,
+      "noIndex": true,
+      "tags": [""],
+      "relatedIds": [""]
+    },
+    {
+      "id": "404",
+      "title": "404 should never be rendered",
+      "description": "",
+      "category": "misc",
+      "keywords": "",
+      "image": "",
+      "date": "2025-07-26",
+      "author": "",
+      "path": "/",
+      "featured": false,
+      "noIndex": true,
+      "tags": [""],
+      "relatedIds": ["home-page"]
     }
 
   ],
