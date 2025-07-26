@@ -244,7 +244,10 @@ p {
     margin: var(--spacing-md) 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
+    overflow: hidden;
+    word-wrap: break-word;
 }
+
 
 /* Image and Figure Styles */
 .figure {
@@ -373,15 +376,20 @@ code {
     background-color: var(--code-bg);
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    overflow: hidden; 
+    width: 100%;
+    min-width: 0; 
 }
 
 .code-block pre {
     padding: var(--spacing-md);
-    overflow-x: auto;
     margin: 0;
-    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
     box-sizing: border-box;
+    white-space: pre;
+    word-wrap: normal;
+    word-break: normal;
 }
 
 .code-block code {
@@ -390,20 +398,36 @@ code {
     background: none;
     padding: 0;
     color: #A5F3FC;
-    word-break: break-all; 
-    white-space: pre-wrap; 
-    
+    display: block;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
-    .code-block pre {
-        padding: var(--spacing-sm);
-        font-size: 0.8rem; 
+    .code-block {
+        margin-left: calc(var(--spacing-lg) * -1);
+        margin-right: calc(var(--spacing-lg) * -1);
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
     
-    .code-block code {
-        word-break: break-word; 
-        overflow-wrap: break-word;
+    .code-block pre {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.8rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .code-block pre::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .code-block pre::-webkit-scrollbar-track {
+        background: var(--code-bg);
+    }
+    
+    .code-block pre::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
     }
 }
 
