@@ -135,13 +135,13 @@
       "featured": false,
       "noIndex": true,
       "tags": [""],
-      "relatedIds": ["home-page"]
+      "relatedIds": ["home-page", "contact-us"]
     }
 
   ],
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 5
+    "totalArticles": 7
   }
 }
