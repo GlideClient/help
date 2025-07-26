@@ -86,13 +86,27 @@
       "path": "/articles/contactus",
       "featured": false,
       "tags": ["contact", "information"],
-      "relatedIds": [""]
+      "relatedIds": ["income"]
+    },
+    {
+      "id": "income",
+      "title": "How does Glide Make money?",
+      "description": "Learn how we make money...",
+      "category": "faq",
+      "keywords": "glide income support donate premium",
+      "image": "/assets/bg.webp",
+      "date": "2025-07-26",
+      "author": "BreadCat",
+      "path": "/articles/income",
+      "featured": false,
+      "tags": ["income"],
+      "relatedIds": ["contact-us"]
     }
 
   ],
   "meta": {
     "version": "1.0",
     "lastUpdated": "2025-07-25",
-    "totalArticles": 3
+    "totalArticles": 5
   }
 }
