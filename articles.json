@@ -115,7 +115,7 @@
       "keywords": "",
       "image": "/assets/bg.webp",
       "date": "2025-07-26",
-      "author": "BreadCat",
+      "author": "GlideClient",
       "path": "/",
       "featured": false,
       "noIndex": true,
@@ -123,8 +123,8 @@
       "relatedIds": [""]
     },
     {
-      "id": "404",
-      "title": "404 should never be rendered",
+      "id": "not-found",
+      "title": "not-found should never be rendered",
       "description": "",
       "category": "misc",
       "keywords": "",
