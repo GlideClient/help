@@ -97,6 +97,7 @@
                 this.filteredArticles = [];
                 this.activeCategory = 'all';
                 this.searchTerm = '';
+                this.randomSeed = Math.random();
 
                 this.searchInput = document.querySelector('.search-input');
                 this.docsGrid = document.querySelector('.docs-grid');
@@ -123,7 +124,17 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                this.docs = data.articles.filter(article => !article.noIndex);
+                
+                this.docs = data.articles.filter(article => {
+                    if (article.noIndex) return false;
+                    
+                    if (article.specialDisplay === 'random' && article.displayChance) {
+                        return this.randomSeed < article.displayChance;
+                    }
+                    
+                    return true;
+                });
+                
                 this.categories = data.categories;
                 this.filteredArticles = [...this.docs];
             }
