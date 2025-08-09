@@ -83,7 +83,7 @@
       "description": "Download the offical GlideClient assets",
       "category": "misc",
       "keywords": "glide logo font colours images png svg copy background slogan",
-      "image": "/assets/bg.webp",
+      "image": "https://glideclient.github.io/Branding/banner.png",
       "date": "2025-08-09",
       "author": "GlideClient",
       "path": "/articles/branding",
