@@ -78,9 +78,9 @@
       "relatedIds": [""]
     },
     {
-      "id": "contact-us",
-      "title": "Contact Us",
-      "description": "Find out how you can contact the GlideClient team.",
+      "id": "branding",
+      "title": "GlideClient Branding",
+      "description": "Download the offical GlideClient assets",
       "category": "misc",
       "keywords": "glide logo font colours images png svg copy background slogan",
       "image": "/assets/bg.webp",
@@ -108,9 +108,9 @@
       "relatedIds": ["contact-us"]
     },
     {
-      "id": "branding",
-      "title": "GlideClient Branding",
-      "description": "Download the offical GlideClient assets",
+      "id": "contact-us",
+      "title": "Contact Us",
+      "description": "Find out how you can contact the GlideClient team.",
       "category": "faq",
       "keywords": "glide income support donate premium",
       "image": "/assets/bg.webp",
