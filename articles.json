@@ -122,7 +122,7 @@
       "tags": ["mopi", "emergency", "puppi"],
       "relatedIds": ["contact-us"],
       "specialDisplay": "random",
-      "displayChance": 0.05
+      "displayChance": 0.005
     },
     {
       "id": "home-page",
