@@ -123,23 +123,6 @@
       "relatedIds": ["income"]
     },
     {
-      "id": "mopi-in-your-walls",
-      "title": "How to Remove a Mopi from Your Walls",
-      "description": "Identifying a Wall-Dwelling Mopi",
-      "category": "misc",
-      "keywords": "mopi puppi wall removal extraction emergency cute developer puppygirl discord arch linux",
-      "image": "/assets/bg.webp",
-      "date": "2025-07-26",
-      "author": "Mopi",
-      "path": "/articles/mopi-in-your-walls",
-      "featured": false,
-      "noIndex": false,
-      "tags": ["mopi", "emergency", "puppi"],
-      "relatedIds": ["contact-us"],
-      "specialDisplay": "random",
-      "displayChance": 0.005
-    },
-    {
       "id": "home-page",
       "title": "The Homepage",
       "description": "Click to go back to the homepage.",
