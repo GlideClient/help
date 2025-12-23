@@ -123,6 +123,21 @@
       "relatedIds": ["income"]
     },
     {
+      "id": "privacy",
+      "title": "Privacy Statement",
+      "description": "Find out how we handle data.",
+      "category": "faq",
+      "keywords": "gdpr data dpa gdpr echr ccpa policy personal",
+      "image": "/assets/bg.webp",
+      "date": "2025-12-23",
+      "author": "GlideClient",
+      "path": "/articles/privacy",
+      "featured": false,
+      "noIndex": false,
+      "tags": ["privacy"],
+      "relatedIds": ["contact-us", "income", "branding"]
+    },
+    {
       "id": "home-page",
       "title": "The Homepage",
       "description": "Click to go back to the homepage.",
